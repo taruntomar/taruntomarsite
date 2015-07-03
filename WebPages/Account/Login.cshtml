@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Shared/Layout.cshtml";
+    Page.Title = "Tarun Tomar- Charts";
+}
+
+@{
+    if (IsPost)
+    {
+        var username = Request["username"];
+        var password = Request["Password"];
+
+
+        <p>
+            Welcome @username
+            your password is @password
+        </p>
+    }
+    else
+    {
+        <form method="post" action="">
+
+            Username <input name="username" type="text" /> <br>
+            Password <input name="Password" type="password" /><br>
+            <input id="Submit1" type="submit" value="submit" />
+
+        </form>
+    }
+}

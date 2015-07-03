@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Shared/Layout.cshtml";
+    Page.Title = "Tarun Tomar- Email Page";
+}
+
+
+
+@{
+    if(IsPost)
+    {
+       
+        var customerEmail = Request["customerEmail"];
+        var customerRequest = Request["customerRequest"];
+        try
+        {
+          
+            WebMail.Send(to: "tarunkumar.tomar@velankani.com", subject: "Help request from - " + customerEmail, body: customerRequest);
+        }
+        catch (Exception ex)
+        {
+            <text>@ex</text>
+        }
+        }
+    
+    else
+    {
+        <form method="post" action="">
+            <label>Username:</label>
+            <input type="text name=" customeremail" />
+            <label>Details about the problem:</label>
+            <textarea name="customerRequest" cols="45" rows="4"></textarea>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+    }
+}
+

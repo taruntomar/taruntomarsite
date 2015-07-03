@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Shared/Layout.cshtml";
+    Page.Title = "Tarun Tomar- Image Gallery";
+}
+
+
+@{
+    var db = WebMatrix.Data.Database.Open("myconn");
+    var selectQueryString = "SELECT * FROM dbo.Login_Table";
+    var data = db.Query(selectQueryString);
+}
+
+<h1>Small Bakery Products</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    @foreach (var row in data)
+    {
+        <tr>
+            <td>@row.Emp_Id</td>
+            <td>@row.Emp_Name</td>
+        </tr>
+    }
+</table>
+
+<hr />

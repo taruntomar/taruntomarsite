@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Shared/Layout.cshtml";
+    Page.Title = "Tarun Tomar- Charts";
+}
+    data from webgrid
+@{
+    var db = WebMatrix.Data.Database.Open("myconn");
+    var selectQueryString = "SELECT * FROM dbo.Login_Table";
+    var data = db.Query(selectQueryString);
+}
+@{
+    var grid = new WebGrid(data);
+    Write(grid.GetHtml());
+}
+<img src="~/Charts.cshtml" />

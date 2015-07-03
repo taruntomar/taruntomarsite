@@ -1,0 +1,23 @@
+﻿
+
+@{
+    Layout = "~/Shared/Layout.cshtml";
+    Page.Title = "Tarun Tomar";
+}
+
+Just some data from Text File<br />
+@{
+    Array dataarray = File.ReadAllLines(Server.MapPath("~/App_Data/somedata.txt"));
+    foreach(string line in dataarray){
+        foreach(string word in line.Split(',')){
+            Write(word);
+        }
+    }
+}
+
+<hr />
+
+Data from database
+@RenderPage("~/Products.cshtml");
+Gallery  <br/>
+@RenderPage("~/ImageGallery.cshtml");

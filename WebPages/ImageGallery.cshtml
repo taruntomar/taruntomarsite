@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Shared/Layout.cshtml";
+    Page.Title = "Tarun Tomar- Image Gallery";
+}
+
+@{
+    
+    var imagepath = "";
+    if (IsPost)
+    {
+        imagepath = "Images/" + Request["ImageChoice"];
+    }
+}
+
+<form action="" method="post">
+    <select name="ImageChoice">
+        <option value="napolian_1.jpg">Napolian Portrait</option>
+        <option value="napolian_2.jpg">napolian Return</option>
+    </select>
+    <input id="Submit1" type="submit" value="submit" />
+
+</form>
+
+@{
+    
+    if (imagepath != "") { 
+        <p><img src="@imagepath" alt="Sample" width="500" height="500" /></p>
+}
+}
